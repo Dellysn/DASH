@@ -1,0 +1,30 @@
+<h1 class="center">Edit your Idea</h1>
+{{#each errors}}
+<div class="materialert error">{{text}}</div>
+{{/each}}
+
+<form class="col s12" action="/idea/edit/{{ideas.id}}?_method=PUT" method="POST">
+    <div class="row">
+        <input type="hidden" name="_method" value="PUT">
+        {{#each ideas}}
+        <div class="input-field col s6">
+            <input placeholder="Placeholder" id="title" type="text" value={{title}} name="title">
+            <label for="title">Title</label>
+        </div>
+        <div class="input-field col s6">
+            <input id="author" name="author" value={{author}} type="text">
+            <label for="author">Author</label>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="input-field col s12">
+            <textarea id="textarea1" class="materialize-textarea" name="idea">{{idea}}</textarea>
+            <label for="textarea1">Your Stories</label>
+        </div>
+
+        {{/each}}
+    </div>
+    <input type="submit" value="update" class="btn green">
+
+</form>
