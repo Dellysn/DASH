@@ -1,0 +1,19 @@
+<h1 class="center">Ideas</h1>
+
+<hr>
+<div class="row">
+    {{#each ideas}}
+    <div class="col s12 m4">
+        <div class="card green darken-1">
+            <div class="card-content white-text">
+                <span class="card-title">{{title}}</span>
+                <p>{{idea}}</p>
+
+            </div>
+            <div class="card-action yellow">
+                <a href="#">{{author}}</a>
+                <a href="#">This is a link</a>
+            </div>
+        </div>
+    </div>{{/each}}
+</div>
