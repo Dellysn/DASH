@@ -5,6 +5,7 @@ const mongoose = require("mongoose");
 const path = require("path");
 const config = require("./config/database.js");
 const morgan = require("morgan");
+const methodOverride = require("method-override");
 const PORT = 3000;
 const app = express();
 // Load Routes
@@ -35,6 +36,8 @@ app.engine(
 );
 
 app.set("view engine", ".hbs");
+// Method Override Middleware
+app.use(methodOverride("_method"));
 // Static Folders
 app.use(express.static(path.join(__dirname, "public")));
 

@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const exphbs = require("express-handlebars");
+const methodOverride = require("method-override");
 
 const Idea = require("../models/Ideas");
 router.get("/", (req, res) => {
@@ -52,4 +53,18 @@ router.post("/add", (req, res) => {
   }
 });
 
+// Edit
+router.get("/edit/:id", (req, res) => {
+  let condition = { _id: req.params.id };
+  Idea.find(condition)
+    .then(ideas => {
+      res.render("./ideas/edit", { title: "Edit your Idea", ideas });
+    })
+    .catch(err => {
+      throw err;
+    });
+});
+router.put("/edit/:id", (req, res) => {
+  res.send("passed ");
+});
 module.exports = router;
