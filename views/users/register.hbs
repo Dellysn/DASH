@@ -1,37 +1,37 @@
 <h1 class="center">Register</h1>
-<div class="row">
+
+<div class="row" style="height: 100vh">
     <form class="col s12" action="/user/register" method="POST">
         <div class="row">
             <div class="input-field col s6">
-
-                <input id="icon_prefix" type="text" name="firstname" class="validate">
+                <input id="icon_prefix" type="text" name="firstname" class="validate" value={{firstname}}>
                 <label for="icon_prefix">First Name</label>
             </div>
             <div class="input-field col s6">
 
-                <input id="icon_telephone" name="lastname" type="text" class="validate">
+                <input id="icon_telephone" name="lastname" type="text" class="validate" value={{lastname}}>
                 <label for="icon_telephone">Last Name</label>
             </div>
             <div class="input-field col s6">
 
-                <input id="icon_telephone" name="email" type="email" class="validate">
+                <input id="icon_telephone" name="email" type="email" class="validate" value={{email}}>
                 <label for="icon_telephone">Email</label>
             </div>
             <div class="input-field col s6">
 
-                <input id="icon_telephone" type="text" name="username" class="validate">
+                <input id="icon_telephone" type="text" name="username" class="validate" value={{username}}>
                 <label for="icon_telephone">Username</label>
             </div>
         </div>
         <div class="row">
             <div class="input-field col s6">
 
-                <input id="icon_prefix" type="password" name="password" class="validate">
+                <input id="icon_prefix" type="password" name="password" class="validate" value={{password}}>
                 <label for="icon_prefix">Password</label>
             </div>
             <div class="input-field col s6">
 
-                <input id="password" type="password" name="password2" class="validate">
+                <input id="password" type="password" name="password2" class="validate" value={{password2}}>
                 <label for="password">Repeat Password</label>
             </div>
             <div class="input-field col s6">

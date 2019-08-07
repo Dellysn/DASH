@@ -5,6 +5,10 @@ const mongoose = require("mongoose");
 const path = require("path");
 const config = require("./config/database.js");
 const morgan = require("morgan");
+const methodOverride = require("method-override");
+const passport = require("passport");
+const session = require("express-session");
+const flash = require("connect-flash");
 const PORT = 3000;
 const app = express();
 // Load Routes
@@ -33,11 +37,33 @@ app.engine(
     partialsDir: __dirname + "/views/partials/"
   })
 );
-
+// View Engine
 app.set("view engine", ".hbs");
+// Method Override Middleware
+app.use(methodOverride("_method"));
 // Static Folders
 app.use(express.static(path.join(__dirname, "public")));
-
+// Express Session Middleware
+app.use(
+  session({
+    secret: "Dellyson.js",
+    resave: false,
+    saveUninitialized: true,
+    cookie: { secure: false }
+  })
+);
+// Passport config
+app.use(passport.initialize());
+app.use(passport.session());
+// Connect - flash
+app.use(flash());
+// Global Variables
+app.use((req, res, next) => {
+  res.locals.success_msg = req.flash("success_msg");
+  res.locals.error_msg = req.flash("error_msg");
+  res.locals.error = req.flash("error");
+  next();
+});
 // Routing
 app.use("/user", user);
 app.use("/idea", ideas);

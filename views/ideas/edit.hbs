@@ -3,10 +3,10 @@
 <div class="materialert error">{{text}}</div>
 {{/each}}
 
-<form class="col s12" action="/idea/edit/{{ideas.id}}?_method=PUT" method="POST">
+{{#each ideas}}<form class="col s12" action="/idea/edit/{{id}}?_method=PUT " method="POST">
     <div class="row">
         <input type="hidden" name="_method" value="PUT">
-        {{#each ideas}}
+
         <div class="input-field col s6">
             <input placeholder="Placeholder" id="title" type="text" value={{title}} name="title">
             <label for="title">Title</label>
@@ -23,8 +23,8 @@
             <label for="textarea1">Your Stories</label>
         </div>
 
-        {{/each}}
+
     </div>
     <input type="submit" value="update" class="btn green">
 
-</form>
+</form>{{/each}}

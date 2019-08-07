@@ -1,7 +1,7 @@
 <h1 class="center">Ideas</h1>
 
 <hr>
-<div class="row">
+<div class="row" style="height: 100vh">
     {{#each ideas}}
     <div class="col s12 m4">
         <div class="card green darken-1">
@@ -11,9 +11,16 @@
 
             </div>
             <div class="card-action yellow">
-                <a href="#">{{author}}</a>
-                <a href="#">This is a link</a>
+                <a class="black-text disabled">{{author}}</a>
+                <a href="/idea/edit/{{id}}">Edit </a>
+                <form action="/idea/{{id}}?_method=DELETE" method="POST">
+                    <input type="hidden" name="_method" value="DELETE">
+                    <input type="submit" class=" btn red" value="Delete">
+                </form>
             </div>
         </div>
-    </div>{{/each}}
+    </div>
+    {{else}}
+    <h2 class="red-text center"> No ideas Available</h2>
+    {{/each}}
 </div>

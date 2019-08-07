@@ -1,13 +1,15 @@
 <h1 class="center">Login to add Stories</h1>
+{{#each errors}}
+<div class="materialert error">{{text}}</div>
+{{/each}}
 
-
-<div class="row">
+<div class="row" style="height: 100vh">
     <form class="col s12" action="/user/login" method="POST">
         <div class="row">
             <div class="input-field col s12">
 
-                <input id="icon_telephone" name="username" type="text" class="validate">
-                <label for="username">Username</label>
+                <input id="icon_telephone" name="email" type="email" class="validate">
+                <label for="username">Email</label>
             </div>
             <div class="input-field col s12">
 

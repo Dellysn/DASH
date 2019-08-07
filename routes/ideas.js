@@ -1,13 +1,15 @@
 const express = require("express");
 const router = express.Router();
-const exphbs = require("express-handlebars");
-
 const Idea = require("../models/Ideas");
 router.get("/", (req, res) => {
-  Idea.find({}, (err, ideas) => {
-    if (err) throw err;
-    res.render("./ideas/idea", { title: "DASH - Home", ideas: ideas });
-  });
+  Idea.find({})
+    .sort({ date: "desc" })
+    .then(ideas => {
+      res.render("./ideas/idea", { title: "DASH - Home", ideas: ideas });
+    })
+    .catch(err => {
+      throw err;
+    });
 });
 // Ideas routes
 
@@ -46,10 +48,54 @@ router.post("/add", (req, res) => {
       author: author,
       idea: idea
     });
-    ideas.save().then(idea => {
+    ideas.save().then(() => {
       res.redirect("/");
     });
   }
+});
+
+// Edit
+router.get("/edit/:id", (req, res) => {
+  let condition = { _id: req.params.id };
+  Idea.find(condition)
+    .then(ideas => {
+      res.render("./ideas/edit", { title: "Edit your Idea", ideas });
+    })
+    .catch(err => {
+      throw err;
+    });
+});
+// Update Route
+router.put("/edit/:id", (req, res) => {
+  let condition = { _id: req.params.id };
+  const { author, title, idea } = req.body;
+  Idea.findOne(condition).then(ideas => {
+    ideas.title = title;
+    (ideas.author = author), (ideas.idea = idea);
+
+    ideas
+      .save()
+      .then(idea => {
+        req.flash("success_msg", "Idea updated successfully");
+        res.redirect("/idea");
+      })
+      .catch(err => {
+        if (err) throw err;
+      });
+  });
+});
+
+// Delete routes
+router.delete("/:id", (req, res) => {
+  let condition = { _id: req.params.id };
+  Idea.remove(condition)
+    .then(() => {
+      req.flash("success_msg", "Idea deleted successfully");
+      res.redirect("/idea");
+    })
+    .catch(err => {
+      if (err) throw err;
+    });
 });
 
 module.exports = router;
