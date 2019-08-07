@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const Idea = require("../models/Ideas");
+const { ensureAuthenticated } = require("../config/authenticate");
 router.get("/", (req, res) => {
   Idea.find({})
     .sort({ date: "desc" })
@@ -13,7 +14,7 @@ router.get("/", (req, res) => {
 });
 // Ideas routes
 
-router.get("/add", (req, res) => {
+router.get("/add", ensureAuthenticated, (req, res) => {
   res.render("./ideas/add-story", { title: "DASH - Add stories" });
 });
 router.post("/add", (req, res) => {
@@ -46,10 +47,11 @@ router.post("/add", (req, res) => {
     let ideas = new Idea({
       title: title,
       author: author,
-      idea: idea
+      idea: idea,
+      user: req.user.id
     });
     ideas.save().then(() => {
-      res.redirect("/");
+      res.redirect("/idea");
     });
   }
 });

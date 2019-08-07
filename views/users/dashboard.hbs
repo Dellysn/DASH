@@ -1,0 +1,27 @@
+<h1 class="center">Dashboard</h1>
+
+<table class="striped highlight responsive">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Title</th>
+
+            <th>Date</th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+        {{#each idea}}
+        <tr>
+            <td>{{author}} </td>
+
+
+
+            <td><a href="#">{{title}} </a></td>
+            <td>{{date}} </td>
+
+        </tr>
+        {{/each}}
+    </tbody>
+</table>

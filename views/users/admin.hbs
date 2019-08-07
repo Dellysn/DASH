@@ -1,0 +1,24 @@
+<h1 class="center">Admin - Dashboard</h1>
+
+<table class="striped highlight responsive">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Title</th>
+            <th>Item Price</th>
+        </tr>
+    </thead>
+
+    <tbody>{{#each user}}
+        <tr>
+            <td>{{firstname}} {{lastname}}</td>
+
+
+
+            <td>{{email}} </td>
+            <td>{{username}} </td>
+
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
