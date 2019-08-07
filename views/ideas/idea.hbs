@@ -1,7 +1,7 @@
 <h1 class="center">Ideas</h1>
 
 <hr>
-<div class="row" style="height: 100vh">
+<div class="row">
     {{#each ideas}}
     <div class="col s12 m4">
         <div class="card green darken-1">
@@ -11,12 +11,10 @@
 
             </div>
             <div class="card-action yellow">
-                <a class="black-text disabled">{{author}}</a>
-                <a href="/idea/edit/{{id}}">Edit </a>
-                <form action="/idea/{{id}}?_method=DELETE" method="POST">
-                    <input type="hidden" name="_method" value="DELETE">
-                    <input type="submit" class=" btn red" value="Delete">
-                </form>
+                <blockquote class="black-text disabled">{{author}}</blockquote>
+                {{#if user}}
+                {{> _edit}}
+                {{/if}}
             </div>
         </div>
     </div>

@@ -51,13 +51,14 @@ router.post("/add", (req, res) => {
       user: req.user.id
     });
     ideas.save().then(() => {
+      req.flash("success_msg", "Idea added successfully!");
       res.redirect("/idea");
     });
   }
 });
 
 // Edit
-router.get("/edit/:id", (req, res) => {
+router.get("/edit/:id", ensureAuthenticated, (req, res) => {
   let condition = { _id: req.params.id };
   Idea.find(condition)
     .then(ideas => {

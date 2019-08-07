@@ -5,8 +5,8 @@
         <tr>
             <th>Name</th>
             <th>Title</th>
-
             <th>Date</th>
+            <th>Actions</th>
         </tr>
     </thead>
 
@@ -20,6 +20,12 @@
 
             <td><a href="#">{{title}} </a></td>
             <td>{{date}} </td>
+            <td><a class="btn orange " href="/idea/edit/{{id}}">Edit </a>
+                <form action="/idea/{{id}}?_method=DELETE" method="POST">
+                    <input type="hidden" name="_method" value="DELETE">
+                    <input type="submit" class=" btn red" value="Delete">
+                </form>
+            </td>
 
         </tr>
         {{/each}}
