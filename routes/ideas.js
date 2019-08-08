@@ -65,7 +65,9 @@ router.get("/edit/:id", ensureAuthenticated, (req, res) => {
       res.render("./ideas/edit", { title: "Edit your Idea", ideas });
     })
     .catch(err => {
-      throw err;
+      if (err) {
+        throw err;
+      }
     });
 });
 // Update Route

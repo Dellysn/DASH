@@ -11,6 +11,7 @@ const session = require("express-session");
 const flash = require("connect-flash");
 const PORT = 3000;
 const app = express();
+const { editIcon } = require("./helpers/hbs");
 // Load Routes
 const user = require("./routes/user");
 const ideas = require("./routes/ideas");
@@ -34,7 +35,10 @@ app.engine(
     extname: "hbs",
     defaultLayout: "main",
     layoutsDir: __dirname + "/views/layouts/",
-    partialsDir: __dirname + "/views/partials/"
+    partialsDir: __dirname + "/views/partials/",
+    helpers: {
+      editIcon: editIcon
+    }
   })
 );
 // View Engine

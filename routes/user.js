@@ -132,7 +132,6 @@ router.get("/dashboard", ensureAuthenticated, (req, res) => {
   const Idea = require("../models/Ideas");
   Idea.find({ user: req.user.id })
     .then(idea => {
-      console.log(idea);
       res.render("./users/dashboard", {
         title: "DASH - Dashboard",
         idea: idea

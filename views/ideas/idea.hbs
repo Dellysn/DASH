@@ -1,9 +1,9 @@
 <h1 class="center">Ideas</h1>
 
 <hr>
-<div class="row">
+<div class="row" style="height: 100vh;">
     {{#each ideas}}
-    <div class="col s12 m4">
+    <div class="col s12 m3">
         <div class="card green darken-1">
             <div class="card-content white-text">
                 <span class="card-title">{{title}}</span>
@@ -13,7 +13,7 @@
             <div class="card-action yellow">
                 <blockquote class="black-text disabled">{{author}}</blockquote>
                 {{#if user}}
-                {{> _edit}}
+                {{{editIcon user ../user.id id}}}
                 {{/if}}
             </div>
         </div>
