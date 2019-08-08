@@ -1,15 +1,27 @@
 <nav>
-    <div class="nav-wrapper navbar-fixed">
+    <div class="nav-wrapper navbar-fixed orange">
         <div class="container">
             <a href="#" class="brand-logo">DASH</a>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
+
+                {{#if user}}
                 <li><a href="/">Home</a></li>
-                <li><a href="/idea">ideas</a></li>
-                <li><a href="/home/about">About Us</a></li>
-                <li><a href="/home/service">Our Services</a></li>
+                <li><a href="/idea">Ideas</a></li>
+
                 <li><a href="/idea/add">Add Story</a></li>
-                <li><a href="/user/login">Login</a></li>
+                <li><a href="/user/dashboard">Dashboard</a></li>
+                <li><a href="/user/logout"> Logout</a></li>
+                {{else}}
+                <li><a href="/">Home</a></li>
+                <li><a href="/idea">Ideas</a></li>
+
                 <li><a href="/user/register">Register</a></li>
+                <li><a href="/user/login">Login</a></li>
+
+                {{/if}}
+
+
+
             </ul>
         </div>
     </div>

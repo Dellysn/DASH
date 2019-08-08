@@ -1,9 +1,9 @@
 <h1 class="center">Ideas</h1>
 
 <hr>
-<div class="row">
+<div class="row" style="height: 100vh;">
     {{#each ideas}}
-    <div class="col s12 m4">
+    <div class="col s12 m3">
         <div class="card green darken-1">
             <div class="card-content white-text">
                 <span class="card-title">{{title}}</span>
@@ -11,9 +11,19 @@
 
             </div>
             <div class="card-action yellow">
+<<<<<<< HEAD
                 <a class="black-text disabled">{{author}}</a>
                 <a href="/idea/edit/{{id}}">Edit </a>
+=======
+                <blockquote class="black-text disabled">{{author}}</blockquote>
+                {{#if user}}
+                {{{editIcon user ../user.id id}}}
+                {{/if}}
+>>>>>>> development
             </div>
         </div>
-    </div>{{/each}}
+    </div>
+    {{else}}
+    <h2 class="red-text center"> No ideas Available</h2>
+    {{/each}}
 </div>
