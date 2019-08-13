@@ -1,28 +1,28 @@
-<nav>
-    <div class="nav-wrapper navbar-fixed orange">
-        <div class="container">
-            <a href="#" class="brand-logo">DASH</a>
-            <ul id="nav-mobile" class="right hide-on-med-and-down">
+<nav class="navbar navbar-expand-lg  navbar-dark bg-dark">
+    <a class="navbar-brand" href="/">DASH</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02"
+        aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
 
-                {{#if user}}
-                <li><a href="/">Home</a></li>
-                <li><a href="/idea">Ideas</a></li>
+    <div class="collapse navbar-collapse" id="navbarColor02">
+        <ul class="navbar-nav mr-auto">
+            {{#if user}}
+            <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="/idea">Ideas</a></li>
 
-                <li><a href="/idea/add">Add Story</a></li>
-                <li><a href="/user/dashboard">Dashboard</a></li>
-                <li><a href="/user/logout"> Logout</a></li>
-                {{else}}
-                <li><a href="/">Home</a></li>
-                <li><a href="/idea">Ideas</a></li>
+            <li class="nav-item"><a class="nav-link" href="/idea/add">Add Story</a></li>
+            <li class="nav-item"><a class="nav-link" href="/user/dashboard">Dashboard</a></li>
+            <li class="nav-item"><a class="nav-link" href="/user/logout"> Logout</a></li>
+            {{else}}
+            <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="/idea">Ideas</a></li>
 
-                <li><a href="/user/register">Register</a></li>
-                <li><a href="/user/login">Login</a></li>
+            <li class="nav-item"><a class="nav-link" href="/user/register">Register</a></li>
+            <li class="nav-item"><a class="nav-link" href="/user/login">Login</a></li>
 
-                {{/if}}
+            {{/if}}
+        </ul>
 
-
-
-            </ul>
-        </div>
     </div>
 </nav>

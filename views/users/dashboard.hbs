@@ -1,6 +1,6 @@
 <h1 class="center">Dashboard</h1>
 
-<table class="striped highlight responsive">
+<table class="table table-hover">
     <thead>
         <tr>
             <th>Name</th>
@@ -20,10 +20,10 @@
 
             <td><a href="#">{{title}} </a></td>
             <td>{{date}} </td>
-            <td><a class="btn orange " href="/idea/edit/{{id}}">Edit </a>
+            <td><a class="btn btn-warning btn-block mb-2" href="/idea/edit/{{id}}">Edit </a>
                 <form action="/idea/{{id}}?_method=DELETE" method="POST">
                     <input type="hidden" name="_method" value="DELETE">
-                    <input type="submit" class=" btn red" value="Delete">
+                    <input type="submit" class=" btn btn-danger btn-block" value="Delete">
                 </form>
             </td>
 

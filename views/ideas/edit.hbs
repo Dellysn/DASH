@@ -1,30 +1,30 @@
 <h1 class="center">Edit your Idea</h1>
 {{#each errors}}
-<div class="materialert error">{{text}}</div>
+
+<div class="alert alert-dismissible alert-danger mt-3">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    {{text}}</div>
 {{/each}}
 
 {{#each ideas}}<form class="col s12" action="/idea/edit/{{id}}?_method=PUT " method="POST">
-    <div class="row">
-        <input type="hidden" name="_method" value="PUT">
+    <div class="row"></div>
+    <input type="hidden" name="_method" value="PUT">
 
-        <div class="input-field col s6">
-            <input placeholder="Placeholder" id="title" type="text" value={{title}} name="title">
-            <label for="title">Title</label>
-        </div>
-        <div class="input-field col s6">
-            <input id="author" name="author" value={{author}} type="text">
-            <label for="author">Author</label>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="input-field col s12">
-            <textarea id="textarea1" class="materialize-textarea" name="idea">{{idea}}</textarea>
-            <label for="textarea1">Your Stories</label>
-        </div>
-
+    <div class="form-group">
+        <label for="title">Title</label>
+        <input placeholder="Placeholder" id="title" type="text" value={{title}} name="title" class="form-control">
 
     </div>
-    <input type="submit" value="update" class="btn green">
+    <div class="form-group"> <label for="author">Author</label>
+        <input id="author" name="author" value={{author}} class="form-control" type="text">
+
+    </div>
+
+    <div class="form-group">
+        <label for="textarea1">Your Idea</label>
+        <textarea class="form-control" id="exampleTextarea" rows="3" name="idea">{{idea}}</textarea>
+    </div>
+
+    <input type="submit" value="update" class="btn btn-success">
 
 </form>{{/each}}

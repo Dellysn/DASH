@@ -1,45 +1,39 @@
 <h1 class="center">Register</h1>
-
 <div class="row">
-    <form class="col s12" action="/user/register" method="POST">
-        <div class="row">
-            <div class="input-field col s6">
-                <input id="icon_prefix" type="text" name="firstname" class="validate" value={{firstname}}>
-                <label for="icon_prefix">First Name</label>
-            </div>
-            <div class="input-field col s6">
-
-                <input id="icon_telephone" name="lastname" type="text" class="validate" value={{lastname}}>
-                <label for="icon_telephone">Last Name</label>
-            </div>
-            <div class="input-field col s6">
-
-                <input id="icon_telephone" name="email" type="email" class="validate" value={{email}}>
-                <label for="icon_telephone">Email</label>
-            </div>
-            <div class="input-field col s6">
-
-                <input id="icon_telephone" type="text" name="username" class="validate" value={{username}}>
-                <label for="icon_telephone">Username</label>
-            </div>
+    <div class="col-4 mt-8"></div>
+    <form style="width: 50%" action="/user/register" method="POST">
+        <div class="form-group">
+            <label for="exampleInputEmail1">First Name</label>
+            <input type="email" class="form-control" name="firstname" aria-describedby="emailHelp"
+                placeholder="Enter your First Name" value={{firstname}}>
         </div>
-        <div class="row">
-            <div class="input-field col s6">
-
-                <input id="icon_prefix" type="password" name="password" class="validate" value={{password}}>
-                <label for="icon_prefix">Password</label>
-            </div>
-            <div class="input-field col s6">
-
-                <input id="password" type="password" name="password2" class="validate" value={{password2}}>
-                <label for="password">Repeat Password</label>
-            </div>
-            <div class="input-field col s6">
-
-                <input type="submit" class="btn green">
-            </div>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Last Name</label>
+            <input type="email" class="form-control" name="lastname" aria-describedby="emailHelp"
+                placeholder="Enter Your Last Name" value={{lastname}}>
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Email address</label>
+            <input type="email" class="form-control" name="email" aria-describedby="emailHelp" placeholder="Enter email"
+                value={{email}}>
 
         </div>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Username</label>
+            <input type="email" class="form-control" name="email" aria-describedby="emailHelp"
+                placeholder="Enter Your Username" value={{username}}>
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">Password</label>
+            <input type="password" class="form-control" name="password" placeholder="Password" value={{password}}>
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1"> Repeat Password</label>
+            <input type="password" class="form-control" name="password2" placeholder="Password" value={{password2}}>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
     </form>
 
+</div>
 </div>
