@@ -47,7 +47,7 @@ app.set("view engine", ".hbs");
 app.use(methodOverride("_method"));
 // Static Folders
 app.use(express.static(path.join(__dirname, "public")));
-app.use(express.static(path.join(__dirname, "css")));
+
 // Express Session Middleware
 app.use(
   session({
