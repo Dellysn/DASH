@@ -6,16 +6,17 @@
     {{text}}</div>
 {{/each}}
 
-{{#each ideas}}<form class="col s12" action="/idea/edit/{{id}}?_method=PUT " method="POST">
+{{#each ideas}}
+<form class="col s12" action="/idea/edit/{{id}}?_method=PUT " method="POST">
     <div class="row"></div>
     <input type="hidden" name="_method" value="PUT">
 
     <div class="form-group">
         <label for="title">Title</label>
-        <input placeholder="Placeholder" id="title" type="text" value={{title}} name="title" class="form-control">
-
+        <input placeholder="title" id="title" type="text" name="title" value={{title}} class="form-control">
     </div>
-    <div class="form-group"> <label for="author">Author</label>
+    <div class="form-group">
+        <label for="author">Author</label>
         <input id="author" name="author" value={{author}} class="form-control" type="text">
 
     </div>
