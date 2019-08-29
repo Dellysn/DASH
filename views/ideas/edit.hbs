@@ -6,7 +6,8 @@
     {{text}}</div>
 {{/each}}
 
-{{#each ideas}}<form class="col s12" action="/idea/edit/{{id}}?_method=PUT " method="POST">
+{{#each ideas}}
+<form class="col s12" action="/idea/edit/{{id}}?_method=PUT " method="POST">
     <div class="row"></div>
     <input type="hidden" name="_method" value="PUT">
 
